@@ -7,6 +7,10 @@
 
 import Foundation
 
+enum SleepCategory: String, CaseIterable {
+    case all, sleep, kids, anxious
+}
+
 struct SleepCardStruct: Identifiable {
     let id: String = UUID().uuidString
     let sleepCards: [SleepCardItem]
@@ -16,34 +20,23 @@ struct SleepCardStruct: Identifiable {
             SleepCardItem(title: "The ocean moon",
                           descr: "Non-stop 8-hour mixes of our most popular sleep audio",
                           timer: "50 min",
-                          image: "", category: [
-                            SleepCardItemCategory(category: "Sleep"),
-                            SleepCardItemCategory(category: "Kids")
-                          ]),
+                          image: "", category: [.sleep, .kids]),
             SleepCardItem(title: "Night Island",
                           descr: "Non-stop 45 min mixes of our most popular sleep audio",
                           timer: "45 min",
-                          image: "", category: [
-                            SleepCardItemCategory(category: "Sleep")
-                          ]),
+                          image: "", category: [.sleep]),
             SleepCardItem(title: "Sweet Sleep",
                           descr: "Non-stop 40 min mixes of our most popular sleep audio",
                           timer: "40 min",
-                          image: "", category: [
-                            SleepCardItemCategory(category: "Kids")
-                          ]),
+                          image: "", category: [.kids]),
             SleepCardItem(title: "Moon Sleep",
                           descr: "Non-stop 50 min mixes of our most popular sleep audio",
                           timer: "50 min",
-                          image: "", category: [
-                            SleepCardItemCategory(category: "Anxious")
-                          ]),
+                          image: "", category: [.anxious]),
             SleepCardItem(title: "Cloud Sleep",
                           descr: "Non-stop 32 min mixes of our most popular sleep audio",
                           timer: "32 min",
-                          image: "", category: [
-                            SleepCardItemCategory(category: "Anxious")
-                          ]),
+                          image: "", category: [.anxious]),
         ]
     }
 }
@@ -54,10 +47,5 @@ struct SleepCardItem: Identifiable {
     let descr: String
     let timer: String
     let image: String
-    let category: [SleepCardItemCategory]
-}
-
-struct SleepCardItemCategory: Identifiable {
-    let id: String = UUID().uuidString
-    let category: String
+    let category: [SleepCategory]
 }
