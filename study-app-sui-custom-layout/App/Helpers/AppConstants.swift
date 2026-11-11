@@ -9,7 +9,7 @@ import SwiftUI
 
 enum AppConstants {
     enum Layout {
-        static let offsetPage: CGFloat = 18
+        static let offsetPage: CGFloat = 12
         static let brsCard: CGFloat = 12
         static let brsCategories: CGFloat = 24
     }
@@ -19,6 +19,7 @@ enum AppConstants {
         static let subHeader: CGFloat = 18
         
         static let sizeCategory: CGFloat = 16
+        static let textDefault: CGFloat = 16
 
         static let titleCard: CGFloat = 18
         static let subTitleCard: CGFloat = 12

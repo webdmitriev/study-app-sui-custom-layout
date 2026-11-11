@@ -9,13 +9,14 @@ import SwiftUI
 
 struct TextModifier: ViewModifier {
     var isFrameFull: Bool = true
+    var isFrameCenter: Bool = true
     var fontSize: CGFloat = 16
     var fontWeight: Font.Weight = .regular
     var textColor: Color = .black
     
     func body(content: Content) -> some View {
         content
-            .frame(maxWidth: isFrameFull ? .infinity : .none, alignment: .leading)
+            .frame(maxWidth: isFrameFull ? .infinity : .none, alignment: isFrameCenter ? .center : .leading)
             .font(.system(size: fontSize, weight: fontWeight))
             .foregroundStyle(textColor)
     }
