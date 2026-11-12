@@ -13,8 +13,6 @@ struct HomeHeaderView: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 12) {
-            Spacer(minLength: 18)
-
             Text(title)
                 .modifier(TextModifier(fontSize: AppConstants.Typography.header, fontWeight: .bold, textColor: .appTitle))
             
