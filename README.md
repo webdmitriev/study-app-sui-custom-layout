@@ -20,7 +20,7 @@
 ## 📸 Скриншоты
 | Главный экран |
 | :-----------: |
-| ![Главный экран](https://api.webdmitriev.com/wp-content/uploads/2025/05/boholano-01-scaled.jpg) |
+| ![Главный экран](https://api.webdmitriev.com/wp-content/uploads/2026/11/study-app-swiftui-custom-layout.jpg) |
 
 
 ## ⚙️ Установка
