@@ -27,4 +27,4 @@
 1. Клонируйте репозиторий:
 
 ```bash
-git clone https://github.com/webdmitriev/study-app-sui-tabbar
+git clone https://github.com/webdmitriev/study-app-sui-custom-layout
