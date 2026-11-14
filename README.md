@@ -7,10 +7,13 @@
 - Модификаторы
   - `AppConstants`
 - Компоненты
-  - `BlockHorizontalView`
-  - `HeaderComponentView`
+  - `CategoriesView`
+  - `SleepCardItems`
+  - `SleepCardView`
 - Работа с цветом
   - `extension Color(hex:)`
+- Custom Layout
+  - `FeaturedGridLayout` - first is full screem, next 2 column, if count % 2 == 0 => last is bigger too
 
 
 ## 🛠 Технологии
