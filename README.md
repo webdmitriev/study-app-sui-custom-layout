@@ -17,7 +17,7 @@
 - Custom Layout
   - `FeaturedGridLayout` - first is full screen, next: 2 column, if count % 2 == 0 => last is bigger too
 - iPhone Duo
-  - `FeaturedGridLayout` - adaptive for 3 columns
+  - `LayoutColumns` - adaptive for 3 columns
 
 
 ## 🛠 Технологии
