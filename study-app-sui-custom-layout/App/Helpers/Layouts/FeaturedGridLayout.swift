@@ -10,14 +10,16 @@ import SwiftUI
 struct FeaturedGridLayout: Layout {
     var spacing: CGFloat = 16
 
-    // MARK: - Правила
-    private func isFullWidth(index: Int, count: Int) -> Bool {
+    static func isFullWidth(index: Int, count: Int) -> Bool {
         if index == 0 { return true }
         if count % 2 == 0 && index == count - 1 { return true }
         return false
     }
 
-    // MARK: - Layout
+    private func spansFullWidth(index: Int, count: Int) -> Bool {
+        Self.isFullWidth(index: index, count: count)
+    }
+
     func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
         guard let width = proposal.width, width.isFinite, width > 0 else { return .zero }
 
@@ -29,7 +31,7 @@ struct FeaturedGridLayout: Layout {
         while index < count {
             let rowHeight: CGFloat
 
-            if isFullWidth(index: index, count: count) {
+            if spansFullWidth(index: index, count: count) {
                 rowHeight = subviews[index]
                     .sizeThatFits(ProposedViewSize(width: width, height: nil))
                     .height
@@ -43,7 +45,7 @@ struct FeaturedGridLayout: Layout {
                 index += 2
             }
 
-            if index > 0 { height += spacing }
+            if index < count { height += spacing }
             height += rowHeight
         }
 
@@ -58,14 +60,14 @@ struct FeaturedGridLayout: Layout {
         let count = subviews.count
 
         while index < count {
-            if isFullWidth(index: index, count: count) {
+            if spansFullWidth(index: index, count: count) {
                 let subview = subviews[index]
                 let h = subview
                     .sizeThatFits(ProposedViewSize(width: width, height: nil))
                     .height
                 subview.place(at: CGPoint(x: bounds.minX, y: y),
                               proposal: ProposedViewSize(width: width, height: h))
-                y += h + spacing
+                y += h
                 index += 1
             } else {
                 let h1 = subviews[index]
@@ -80,9 +82,11 @@ struct FeaturedGridLayout: Layout {
                         .place(at: CGPoint(x: x, y: y),
                                proposal: ProposedViewSize(width: columnWidth, height: rowHeight))
                 }
-                y += rowHeight + spacing
+                y += rowHeight
                 index += 2
             }
+
+            if index < count { y += spacing }
         }
     }
 }

@@ -27,6 +27,10 @@ struct HomeView: View {
                 Spacer(minLength: 26)
                 
                 CategoriesView(categories: vm.categories, currentCategory: vm.selectedCategory ?? .all, changeCat: vm.changeCategory)
+                
+                Spacer(minLength: 26)
+                
+                SleepCardItems(items: vm.getSleepCards())
             }
         }
         .frame(maxWidth: .infinity)
