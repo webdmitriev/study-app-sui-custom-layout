@@ -9,6 +9,12 @@ import SwiftUI
 
 struct SleepCardItems: View {
     var items: [SleepCardItem]
+    
+    @Environment(\.horizontalSizeClass) private var sizeClass
+    
+    private var columns: Int {
+        LayoutColumns.gridColumns(for: sizeClass)
+    }
 
     var body: some View {
         if items.isEmpty {
@@ -21,10 +27,10 @@ struct SleepCardItems: View {
             .frame(maxWidth: .infinity)
             .padding(.top, 40)
         } else {
-            FeaturedGridLayout(spacing: 16) {
+            FeaturedGridLayout(spacing: 16, columns: columns) {
                 ForEach(items.enumerated(), id: \.element.id) { idx, item in
                     let style: SleepCardStyle = FeaturedGridLayout.isFullWidth(
-                        index: idx, count: items.count
+                        index: idx, count: items.count, columns: columns
                     ) ? .bigger : .small
 
                     SleepCardView(item: item, style: style)
