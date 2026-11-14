@@ -8,7 +8,19 @@
 import Foundation
 
 enum SleepCategory: String, CaseIterable {
-    case all, sleep, kids, anxious
+    case all, my, sleep, kids, anxious
+}
+
+extension SleepCategory {
+    var iconName: String {
+        switch self {
+        case .all:     return "icon-all"
+        case .my:      return "icon-favorite"
+        case .sleep:   return "icon-sleep"
+        case .kids:    return "icon-kids"
+        case .anxious: return "icon-anxious"
+        }
+    }
 }
 
 struct SleepCardStruct: Identifiable {

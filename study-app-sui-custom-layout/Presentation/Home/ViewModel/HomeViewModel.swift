@@ -18,4 +18,8 @@ class HomeViewModel {
         guard let cat = selectedCategory else { return sleepCards }
         return sleepCards.filter { $0.category.contains(cat) }
     }
+    
+    func changeCategory(_ cat: SleepCategory) {
+        self.selectedCategory = cat
+    }
 }
