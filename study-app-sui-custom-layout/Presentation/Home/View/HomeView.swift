@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    let vm = HomeViewModel()
+    @State private var vm = HomeViewModel()
     
     var body: some View {
         ZStack(alignment: .top) {

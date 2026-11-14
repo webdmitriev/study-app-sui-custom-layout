@@ -57,6 +57,22 @@ struct SleepCardView: View {
     }
     
     private var smallLayout: some View {
-        Text("Small")
+        VStack(spacing: 12) {
+            Image(item.image)
+                .resizable()
+                .frame(height: 124)
+                .scaledToFill()
+                .clipShape(RoundedRectangle(cornerRadius: AppConstants.Layout.brsCard))
+            
+            VStack(spacing: 8) {
+                Text(item.title)
+                    .modifier(TextModifier(isFrameCenter: false,
+                                           fontSize: AppConstants.Typography.titleCard, fontWeight: .bold, textColor: .appTitle))
+                
+                Text("\(item.timer) - Sleep Music".uppercased())
+                    .modifier(TextModifier(isFrameCenter: false, fontSize: 14,
+                                           fontWeight: .medium, textColor: .appTitle.opacity(0.8)))
+            }
+        }
     }
 }
